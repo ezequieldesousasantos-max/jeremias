@@ -1,0 +1,6 @@
+{
+  "name": "Jeremias A.S.O. - Assistente & Segurança Local",
+  "description": "Assistente local com IA e segurança Zero-Trust.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
