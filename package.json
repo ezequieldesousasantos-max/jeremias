@@ -1,0 +1,70 @@
+{
+  "name": "jeremias-aso",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build",
+    "start": "tsx server.ts --prod",
+    "preview": "vite preview",
+    "clean": "rm -rf dist server.js",
+    "lint": "tsc --noEmit",
+    "test": "tsx --test src/lib/security.test.ts src/lib/publicSiteUrl.test.ts src/lib/codenames.test.ts src/lib/stopots.test.ts src/lib/boardGames.test.ts src/lib/chessCom.test.ts src/lib/solitaireMahjong.test.ts src/lib/siteAnalysis.test.ts src/server/core.test.ts src/server/localTools.test.ts src/server/localAuth.test.ts src/server/systemMonitor.test.ts src/server/accessMonitor.test.ts src/server/fileSecurityScan.test.ts src/server/developerActivity.test.ts src/server/retry.test.ts src/lib/chatStream.test.ts src/server/ollamaStream.test.ts",
+    "app": "npm run build && node scripts/build-server.mjs && electron .",
+    "dist:win": "npm run build && node scripts/build-server.mjs && electron-builder --win"
+  },
+  "dependencies": {
+    "@google/genai": "^2.32.0",
+    "chess.js": "^1.4.0",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "ollama": "^0.6.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "autoprefixer": "^10.4.21",
+    "electron": "^45.2.1",
+    "esbuild": "^0.25.0",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.21.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  },
+  "main": "electron/main.cjs",
+  "description": "Jeremias A.S.O. - assistente com política Zero-Trust",
+  "author": "Ezequiel de Sousa Santos",
+  "build": {
+    "appId": "br.local.jeremias.aso",
+    "productName": "Jeremias A.S.O.",
+    "asar": false,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**",
+      "dist/**",
+      "dist-server/**",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
